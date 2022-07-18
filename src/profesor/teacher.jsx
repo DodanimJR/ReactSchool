@@ -33,6 +33,7 @@ const Teacher = ()=>{
             <h1>Teacher</h1>
             {data!==null && <div>
               <h2>{data.nombre} {data.apellido}</h2>
+              
 
             </div> }
         

@@ -1,13 +1,9 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { useParams  } from 'react-router-dom';
+import StudentList from './studentList';
+import { useState, useEffect } from 'react';
 
-
-
-
-const Student = ()=>{
+const Students = ()=>{
     const [data, setData] = useState(null);
-    let {idEstudiante} = useParams();
     
     useEffect(()=>{
         const fetchData = async (url, hook) => {
@@ -19,7 +15,7 @@ const Student = ()=>{
             }
           }
         if(!data){
-            fetchData(`https://schoolapijunior.herokuapp.com/estudiante/${idEstudiante}`, setData);
+            fetchData('https://schoolapijunior.herokuapp.com/estudiante', setData);
             console.log("data:",data);
         }
         console.log("data:",data);
@@ -27,14 +23,10 @@ const Student = ()=>{
     return(
         <div>
 
-            <h1>Student</h1>
-            {data!==null && <div>
-              <h1>{data.abreviacion}</h1>
-              <h2>{data.nombre}</h2>
-
-            </div> }
+            <h1>Students</h1>
+            {data!==null && <StudentList list={data}/>}
         
         </div>
     );
 }
-export default Student;
+export default Students;

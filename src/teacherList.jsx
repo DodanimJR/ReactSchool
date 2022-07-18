@@ -3,7 +3,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 
-const FacultyList = (props) => {
+const TeacherList = (props) => {
     console.log("Lista de Facultades:", props.list);
     return(
         props.list && props.list.map((el, i) => 
@@ -30,4 +30,4 @@ const FacultyList = (props) => {
 
 }
 
-export default FacultyList;
+export default TeacherList;

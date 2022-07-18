@@ -1,17 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import Faculties from './faculties';
 import Faculty from './faculty';
+import Students from './students';
 import Student from './student';
-import Assignment from './assignment'; 
+import Assignments from './assignments'; 
+import Assignment from './assignment';
+import Teachers from './teachers';
 import Teacher from './teacher';
+
 import Home from './home';
 
 import {
-  BrowserRouter as Router,
   Route,
   Link,
-  Routes
+  Routes,
+  BrowserRouter
 } from "react-router-dom";
 
 
@@ -19,9 +24,8 @@ import {
 function App() {
 
   return (
-    <Router>
     <div>
-      <nav>  
+      {/* <nav>  
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -39,17 +43,25 @@ function App() {
             <Link to="/teacher">Teacher</Link>
           </li>
         </ul>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path='faculty' element={<Faculty/>}></Route>
-        <Route path='student' element={<Student/>}></Route>
-        <Route path='assignment' element={<Assignment/>}></Route>
-        <Route path='teacher' element={<Teacher/>}></Route>
-
-      </Routes>
+      </nav> */}
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/pinga/hpta' element={<Home />}></Route>
+          <Route exact path='/faculty' element={<Faculties/>}></Route>
+          <Route exact path='/faculty/:idFacultad' element={<Faculty/>} />
+          <Route exact path='/student' element={<Students/>}>
+            <Route exact path=':idEstudiante' element={<Student/>} />
+          </Route>
+          <Route exact path='/assignment' element={<Assignments/>}>
+            <Route exact path=':idMateria' element={<Assignment/>} />
+          </Route>
+          <Route exact path='/teacher' element={<Teachers/>}>
+            <Route exact path=':idProfesor' element={<Teacher/>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
-  </Router>
+    
   );
 }
 

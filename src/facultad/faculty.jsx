@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams  } from 'react-router-dom';
-import FacultyList from './facultyList';
-import StudentListForFaculty from './studentListForFaculty';
+
+import StudentListForFaculty from '../estudiante/studentListForFaculty';
 
 
 
@@ -36,8 +36,15 @@ const Faculty = ()=>{
               <h1>{data.abreviacion}</h1>
               <h2>{data.nombre}</h2>
               <h3>Decano: {data.nombre_decano}</h3>
-              <h4>Alumnos:</h4>
-              <StudentListForFaculty list={data["estudiantes"]}/>
+              <div className='alumnosymaterias'>
+                <div>
+                  <h4>Alumnos:</h4>
+                  <StudentListForFaculty list={data["estudiantes"]}/>
+                </div>
+                <div>
+                  <h4>Materias:</h4>
+                </div>
+              </div>
             </div>}
         
         </div>

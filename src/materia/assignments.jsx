@@ -1,13 +1,11 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useParams  } from 'react-router-dom';
-import FacultyList from './facultyList';
+import AssignmentList from './assignmentList';
 
 
 
-const Teacher = ()=>{
+const Assignments = ()=>{
     const [data, setData] = useState(null);
-    let {idProfesor} = useParams();
     
     useEffect(()=>{
         const fetchData = async (url, hook) => {
@@ -19,7 +17,7 @@ const Teacher = ()=>{
             }
           }
         if(!data){
-            fetchData(`https://schoolapijunior.herokuapp.com/profesor/${idProfesor}`, setData);
+            fetchData('https://schoolapijunior.herokuapp.com/materia', setData);
             console.log("data:",data);
         }
         console.log("data:",data);
@@ -27,14 +25,10 @@ const Teacher = ()=>{
     return(
         <div>
 
-            <h1>Faculty</h1>
-            {data!==null && <div>
-              <h1>{data.abreviacion}</h1>
-              <h2>{data.nombre}</h2>
-
-            </div> }
+            <h1>assignments</h1>
+            {data!==null && <AssignmentList list={data}/>}
         
         </div>
     );
 }
-export default Teacher;
+export default Assignments;

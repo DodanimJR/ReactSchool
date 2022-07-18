@@ -5,9 +5,10 @@ import { useParams  } from 'react-router-dom';
 
 
 
-const Student = ()=>{
+
+const Teacher = ()=>{
     const [data, setData] = useState(null);
-    let {idEstudiante} = useParams();
+    let {idProfesor} = useParams();
     
     useEffect(()=>{
         const fetchData = async (url, hook) => {
@@ -19,22 +20,23 @@ const Student = ()=>{
             }
           }
         if(!data){
-            fetchData(`https://schoolapijunior.herokuapp.com/estudiante/${idEstudiante}`, setData);
-            console.log("data:",data);
+            fetchData(`https://schoolapijunior.herokuapp.com/profesor/${idProfesor}`, setData);
+            
+        }else{
+          console.log("data changed:",data);
         }
-        console.log("data:",data);
+        
     },[data]);
     return(
         <div>
 
-            <h1>Student</h1>
+            <h1>Teacher</h1>
             {data!==null && <div>
-              <h1>{data.abreviacion}</h1>
-              <h2>{data.nombre}</h2>
+              
 
             </div> }
         
         </div>
     );
 }
-export default Student;
+export default Teacher;

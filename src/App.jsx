@@ -1,14 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import Faculties from './faculties';
-import Faculty from './faculty';
-import Students from './students';
-import Student from './student';
-import Assignments from './assignments'; 
-import Assignment from './assignment';
-import Teachers from './teachers';
-import Teacher from './teacher';
+import Faculties from './facultad/faculties';
+import Faculty from './facultad/faculty';
+import Students from './estudiante/students';
+import Student from './estudiante/student';
+import Assignments from './materia/assignments'; 
+import Assignment from './materia/assignment';
+import Teachers from './profesor/teachers';
+import Teacher from './profesor/teacher';
 
 import Home from './home';
 
@@ -49,15 +49,12 @@ function App() {
           <Route exact path='/pinga/hpta' element={<Home />}></Route>
           <Route exact path='/faculty' element={<Faculties/>}></Route>
           <Route exact path='/faculty/:idFacultad' element={<Faculty/>} />
-          <Route exact path='/student' element={<Students/>}>
-            <Route exact path=':idEstudiante' element={<Student/>} />
-          </Route>
-          <Route exact path='/assignment' element={<Assignments/>}>
-            <Route exact path=':idMateria' element={<Assignment/>} />
-          </Route>
-          <Route exact path='/teacher' element={<Teachers/>}>
-            <Route exact path=':idProfesor' element={<Teacher/>} />
-          </Route>
+          <Route exact path='/student' element={<Students/>}></Route>
+          <Route exact path='student/:idEstudiante' element={<Student/>} />
+          <Route exact path='/assignment' element={<Assignments/>}></Route>
+          <Route exact path='/assignment/:idMateria' element={<Assignment/>} />
+          <Route exact path='/teacher' element={<Teachers/>}></Route>
+          <Route exact path='/teacher/:idProfesor' element={<Teacher/>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -14,7 +14,7 @@ const Teacher = ()=>{
         const fetchData = async (url, hook) => {
             try{
               const result = await axios.get(url);
-              hook(result.data);
+              hook(result.data["response"]);
             } catch (err){
               console.error(err);
             }
@@ -32,7 +32,7 @@ const Teacher = ()=>{
 
             <h1>Teacher</h1>
             {data!==null && <div>
-              
+              <h2>{data.nombre} {data.apellido}</h2>
 
             </div> }
         

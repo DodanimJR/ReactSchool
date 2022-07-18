@@ -13,7 +13,7 @@ const Materia = ()=>{
         const fetchData = async (url, hook) => {
             try{
               const result = await axios.get(url);
-              hook(result.data);
+              hook(result.data["response"]);
             } catch (err){
               console.error(err);
             }
@@ -27,9 +27,8 @@ const Materia = ()=>{
     return(
         <div>
 
-            <h1>Faculty</h1>
+            <h1>Materia</h1>
             {data!==null && <div>
-              <h1>{data.abreviacion}</h1>
               <h2>{data.nombre}</h2>
 
             </div> }

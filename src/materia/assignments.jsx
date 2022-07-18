@@ -25,7 +25,7 @@ const Assignments = ()=>{
     return(
         <div>
 
-            <h1>assignments</h1>
+            <h1>Materias</h1>
             {data!==null && <AssignmentList list={data}/>}
         
         </div>

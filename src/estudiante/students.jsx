@@ -23,7 +23,7 @@ const Students = ()=>{
     return(
         <div>
 
-            <h1>Students</h1>
+            <h1>Estudiantes</h1>
             {data!==null && <StudentList list={data}/>}
         
         </div>
